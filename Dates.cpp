@@ -6,7 +6,7 @@ class Date {
 public:
     int year_standard{1960};
     int month_standard{1};
-    int day_standard{1};
+    int day_standard{0};
     int hour_standard{0};
     int minute_standard{0};
     int second_standard{0};
@@ -81,24 +81,24 @@ public:
     }
 
     bool operator<(const Date& other) {
-        if (year_standard != other.year_standard) return year_standard < other.year_standard;
+        if (isOurEra != other.isOurEra) return isOurEra > other.isOurEra;
+        else if (year_standard != other.year_standard) return year_standard < other.year_standard;
         else if (month_standard != other.month_standard) return month_standard < other.month_standard;
         else if (day_standard != other.day_standard) return day_standard < other.day_standard;
         else if (hour_standard != other.hour_standard) return hour_standard < other.hour_standard;
         else if (minute_standard != other.minute_standard) return minute_standard < other.minute_standard;
         else if (second_standard != other.second_standard) return second_standard < other.second_standard;
-        else if (isOurEra != other.isOurEra) return isOurEra > other.isOurEra;
         else return false;
     }
 
     bool operator>(const Date& other) {
-        if (year_standard != other.year_standard) return year_standard > other.year_standard;
+        if (isOurEra != other.isOurEra) return isOurEra > other.isOurEra;
+        else if (year_standard != other.year_standard) return year_standard > other.year_standard;
         else if (month_standard != other.month_standard) return month_standard > other.month_standard;
         else if (day_standard != other.day_standard) return day_standard > other.day_standard;
         else if (hour_standard != other.hour_standard) return hour_standard > other.hour_standard;
         else if (minute_standard != other.minute_standard) return minute_standard > other.minute_standard;
         else if (second_standard != other.second_standard) return second_standard > other.second_standard;
-        else if (isOurEra != other.isOurEra) return isOurEra > other.isOurEra;
         else return false;
     }
 
